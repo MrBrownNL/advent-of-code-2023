@@ -1,8 +1,6 @@
 <?php
 try {
-    echo "Starting..." . PHP_EOL;
-    $c = new Test();
-    echo "finished" . PHP_EOL;
+    new Test();
 } catch (Exception $e) {
     echo "Error: ". $e->getMessage();
 }
@@ -28,11 +26,11 @@ class Test {
     {
         $inputData = file_get_contents('puzzle_input.txt');
         $this->map = explode(PHP_EOL, $inputData);
-        echo "Solution part 1: " . $this->Execute() . PHP_EOL;
-        echo "Solution part 2: " . $this->Execute(false) . PHP_EOL;
+        echo "Solution part 1: " . $this->execute() . PHP_EOL;
+        echo "Solution part 2: " . $this->execute(false) . PHP_EOL;
     }
 
-    public function Execute(bool $onlyNumericValues = true): string {
+    public function execute(bool $onlyNumericValues = true): string {
         $this->calibrationValues = [];
         $this->onlyNumericValues = $onlyNumericValues;
 
